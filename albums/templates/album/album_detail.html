@@ -1,4 +1,6 @@
-{% extends 'album/base.html' %} {% block content %}
+{% extends 'album/base.html' %} 
+
+{% block content %}
 <div class="album_detail">
   <p class="album_detail_album">Album:</p>
   {{ album.title }}
@@ -16,7 +18,7 @@
   >
     {% csrf_token %}
     <a class="btn btn-secondary" href="{% url 'album_edit' pk=album.pk %}">
-      {% include './icons/pencil-fill.svg' %}
+      {% include '/Users/jeffreybuckley/Momentum/Homework/django-music-collection-JeffBuck8/albums/templates/album/icons/file-earmark-plus.svg' %}
     </a>
 
     <input
