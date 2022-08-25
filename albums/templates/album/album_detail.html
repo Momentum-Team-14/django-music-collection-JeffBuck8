@@ -1,0 +1,32 @@
+{% extends 'album/base.html' %} {% block content %}
+<div class="album_detail">
+  <p class="album_detail_album">Album:</p>
+  {{ album.title }}
+</div>
+<div class="album_artist">
+  <p class="album_detail_artist">Artist:</p>
+  {{ album.artist }}
+</div>
+<aside class="actions">
+  {% if user.is_authenticated %}
+  <form
+    class="inline"
+    action="{% url 'album_remove' pk=album.pk %}"
+    method="post"
+  >
+    {% csrf_token %}
+    <a class="btn btn-secondary" href="{% url 'album_edit' pk=album.pk %}">
+      {% include './icons/pencil-fill.svg' %}
+    </a>
+
+    <input
+      class="btn btn-danger"
+      href="{% url 'album_remove' pk=album.pk %}"
+      type="submit"
+      value="Delete"
+      onclick="return confirm('Confirm, Delete.');"
+    />
+  </form>
+  {% endif %}
+</aside>
+{% endblock %}

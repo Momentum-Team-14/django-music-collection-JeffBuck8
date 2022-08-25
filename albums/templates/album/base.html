@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Albums</title>
+    <link rel="stylesheet" href="{% static 'css/album.css' %}" />
+    </head>
+    <body>
+    <header class="page-header">
+        <h1><a href="/">Record Collection</a></h1>
+        <div class="new_button">
+        {% if user.is_authenticated %}
+        <div class="new_button">
+            <p class="text">Add new album</p>
+            <a href="{% url 'album_new' %}" class="btn btn-secondary">
+            {% include '/Users/jeffreybuckley/Momentum/Homework/django-music-collection-JeffBuck8/albums/templates/album/icons/file-earmark-plus.svg' %}
+            </a>
+        </div>
+        {% endif %}
+        </div>
+    </header>
+    <main class="container">
+        <div class="row">
+        <div class="col">{% block content %} {% endblock %}</div>
+        </div>
+    </main>
+    </body>
+</html>

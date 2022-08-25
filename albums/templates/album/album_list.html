@@ -1,0 +1,12 @@
+{% extends 'album/base.html' %}
+
+{% block content %} {% for album in albums %}
+<article class="album-card">
+    <h2><a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a></h2>
+    <div class="artist_info"><p>Artist: {{ album.artist }}</p></div>
+    <div class="created">
+    <time>Created: {{ album.created_at }}</time>
+    <p>_________________________________</p>
+    </div>
+</article>
+{% endfor %} {% endblock %}
